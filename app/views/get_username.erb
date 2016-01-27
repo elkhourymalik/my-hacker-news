@@ -1,0 +1,14 @@
+<h3>Help us get back your username</h3>
+<form action="/">
+  <input type="submit" value="< Home">
+</form>
+</br>
+<% if @username.nil? %>
+  <form action="/get_username_from_email" method="post">
+    What is your Email address:<br>
+    <input type="text" name="email"><br>
+    <input type="submit" value="Submit">
+  </form>
+<% else %>
+  <p>Your username is <strong><%= @username %></strong></p>
+<% end %>
