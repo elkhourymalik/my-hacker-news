@@ -1,5 +1,5 @@
 # set :bind, '0.0.0.0'
-
+require 'rubygems'
 require 'sinatra'
 require "sinatra/reloader" if development?
 require_relative "config/application.rb"
