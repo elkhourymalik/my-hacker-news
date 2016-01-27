@@ -1,21 +1,44 @@
-<h1>Hacker News</h1>
+<html>
+  <head>
 
-<h3><a href="/login">Login to add a new post</a></h3>
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul class="favicon-white">
+        <h3><a href="/login"><i class="fa fa-sign-out"></i></a></h3>
+    </div>
+    <div id="page-content" class="container">
+      <div class="text-center">
+        <h1>Hacker News</h1>
+      </div>
+      <div class="card-white">
+        <h3>Add a new post</h3>
+        <form action="/create_post" method="post">
+          Name:<br>
+          <input type="text" name="name"><br>
+          Url:<br>
+          <input type="text" name="url"><br>
+          <input type="submit" value="Submit">
+        </form>
+      </div>
 
-<h3>Add a new post</h3>
-<form action="/create_post" method="post">
-  Name:<br>
-  <input type="text" name="name"><br>
-  Url:<br>
-  <input type="text" name="url"><br>
-  <input type="submit" value="Submit">
-</form>
+      <div class="card-white">
+        <% @posts.all.order("votes").reverse_order.each_with_index do |post, i| %>
+          <form action="/upvote_post/<%= post.id %>" method="post">
 
-<% @posts.all.order("votes").reverse_order.each_with_index do |post, i| %>
-  <form action="/upvote_post/<%= post.id %>" method="post">
-    <h5><input type="submit" value="^"><a href="<%= post.url %>"><%= i + 1 %> - <%= post.name %> </a></h5>
-  </form>
-  <form action="/downvote_post/<%= post.id %>" method="post">
-    <h6><input type="submit" value="v"><%= post.votes %> points</h6>
-  </form>
-<% end %>
+            <button>
+              <i class="fa fa-thumbs-up"></i>
+            </button>
+            <a href="<%= post.url %>"><%= i + 1 %> - <%= post.name %> </a></h5>
+          </form>
+          <form action="/downvote_post/<%= post.id %>" method="post">
+            <button>
+              <i class="fa fa-thumbs-down"></i>
+            </button>
+            <h6><%= post.votes %> points</h6>
+          </form>
+        <% end %>
+      </div>
+      </div>
+  </body>
+</html>

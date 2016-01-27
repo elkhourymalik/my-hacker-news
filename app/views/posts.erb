@@ -1,8 +1,22 @@
-<h1>Hacker News</h1>
+<html>
+  <head>
 
-<h3><a href="/login">Login to add a new post</a></h3></br>
-
-<% @posts.all.order("votes").reverse_order.each_with_index do |post, i| %>
-  <h5><a href="<%= post.url %>"><%= i + 1 %> - <%= post.name %> </a></h5>
-  <h6><%= post.votes %> points</h6>
-<% end %>
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul class="favicon-white">
+        <h3><a href="/login"><i class="fa fa-sign-in"></i></a></h3>
+    </div>
+    <div id="page-content" class="container">
+      <div class="text-center">
+        <h1>Hacker News</h1>
+      </div>
+      <div class="card-white">
+        <% @posts.all.order("votes").reverse_order.each_with_index do |post, i| %>
+          <h5><a href="<%= post.url %>"><%= i + 1 %> - <%= post.name %> </a></h5>
+          <h6><%= post.votes %> points</h6>
+        <% end %>
+      </div>
+      </div>
+  </body>
+</html>

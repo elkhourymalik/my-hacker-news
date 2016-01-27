@@ -1,14 +1,31 @@
-<h3>Help us get back your username</h3>
-<form action="/">
-  <input type="submit" value="< Home">
-</form>
-</br>
-<% if @username.nil? %>
-  <form action="/get_username_from_email" method="post">
-    What is your Email address:<br>
-    <input type="text" name="email"><br>
-    <input type="submit" value="Submit">
-  </form>
-<% else %>
-  <p>Your username is <strong><%= @username %></strong></p>
-<% end %>
+<html>
+  <head>
+
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul class="favicon-white">
+        <h3><a href="/"><i class="fa fa-home"></i></a></h3>
+        <h3><a href="/login"><i class="fa fa-sign-in"></i></a></h3>
+      </ul>
+    </div>
+
+    <div id="page-content" class="container">
+      <div class="text-center">
+        <h1>Hacker News</h1>
+      </div>
+      <div class="card-white">
+        <h3>Help us get back your username</h3>
+        <% if @username.nil? %>
+          <form action="/get_username_from_email" method="post">
+            What is your Email address:<br>
+            <input type="text" name="email"><br>
+            <input type="submit" value="Submit">
+          </form>
+        <% else %>
+          <p>Your username is <strong><%= @username %></strong></p>
+        <% end %>
+      </div>
+      </div>
+  </body>
+</html>

@@ -1,31 +1,55 @@
-<h1>Hacker News Login Page</h1>
+<html>
+  <head>
 
-<form action="/">
-  <input type="submit" value="< Home">
-</form>
+  </head>
 
-<h5>You can test it with username: <strong>test</strong> and password: <strong>12345</strong> or register with your own.</h5>
+  <body>
+    <div id="sidebar">
 
-<h3>Register</h3>
+      <div class="favicon-white">
+        <h3><a href="/"><i class="fa fa-home"></i></a></h3>
+      </div>
 
-<form action="/create_user" method="post">
-  Username:<br>
-  <input type="text" name="username"><br>
-  Email:<br>
-  <input type="text" name="email"><br>
-  Password:<br>
-  <input type="password" name="password"><br>
-  <input type="submit" value="Submit">
-</form>
+    </div>
 
-<h3>Login</h3>
+    <div id="page-content" class="container">
 
-<form action="/login1" method="post">
-  Username:<br>
-  <input type="text" name="username"><br>
-  Password:<br>
-  <input type="password" name="password"><br>
-  <input type="submit" value="Submit">
-</form>
+      <div class="text-center">
+        <h1>Hacker News Login Page</h1>
+      </div>
 
-<a href="/get_username">Forgot username</a>
+      <div>
+        <div class="form-style">
+          <h5>You can test it with username: <strong>test</strong> and password: <strong>12345</strong> or register with your own.</h5></br></br>
+          <h1>Login</h1>
+
+          <form action="/login1" method="post">
+            <input type="text" name="username" placeholder="Username" />
+            <input type="password" name="password" placeholder="Password" />
+            <input type="submit" value="Send" />
+          </form>
+          <a href="/get_username" class="link-grey">Forgot username</a>
+        </div>
+
+        <div class="form-style">
+          <h1>Register</h1>
+
+          <form action="/create_user" method="post">
+            <input type="text" name="username" placeholder="Username" />
+            <input type="email" name="email" placeholder="Email" />
+            <input type="password" name="password" placeholder="Password" />
+            <input type="submit" value="Send" />
+          </form>
+        </div>
+      </div>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
